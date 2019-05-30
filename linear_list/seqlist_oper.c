@@ -58,6 +58,7 @@ seqlist add(seqlist t, int elem , int pos){
 	for(int i = t.length -1 ; i >= pos-1 ;i--){
 		t.head[i] = t.head[i-1];
 	}
+
 	t.head[pos-1] = elem;
 	t.length ++;
 	return t;
@@ -68,7 +69,7 @@ seqlist add(seqlist t, int elem , int pos){
 	将前面一个数往前移一位
 */
 seqlist deleteTable(seqlist t , int pos){
-	if (pos >t.length || pos<1) {
+	if (pos > t.length || pos<1) {
         printf("被删除元素的位置有误");
         exit(0);
     }
@@ -80,7 +81,34 @@ seqlist deleteTable(seqlist t , int pos){
 	return t;
 }
 
+/*
+	顺序表查找
+	elem 为查找的元素
+	return 元素的直观位置
+*/
+
+int findElem(seqlist t , int elem){
+	for (int i = 0 ; i < t.length ; i++){
+		if(t.head[i] == elem){
+			return i+1; 
+		}
+	}
+}
+
+/*
+	修改元素elem 为newElem
+*/
+
+seqlist updateElem(seqlist t , int elem, int newElem){
+	int pos = findElem(t,elem);
+	t.head[pos-1] = newElem;
+	printf("修改元素%d -> %d\n",elem, newElem);
+	return t;
+}
+
+
 int main(int argc, char *argv[]){
+	
 	//初始化顺序表
 	seqlist t = init();
 	//给顺序表添加元素
@@ -92,10 +120,22 @@ int main(int argc, char *argv[]){
 	display(t);
 	
 	printf("顺序表的长度为：%d\n", t.length);
-
+	
 	t = deleteTable(t , 2);
 	display(t);
 	
+	//删除最后一个
+	t = deleteTable(t , 4);
+	display(t);
+
+	int pos = findElem(t, 3);
+	printf("元素3的位置是：%d\n", pos);
+
+	display(t);
+	t = updateElem(t, 3, 5);
+	display(t);
+	
 	return 0;
+
 }
 
