@@ -15,6 +15,9 @@ C语言描述数据结构和算法，不涉及任何商业
 |   ├── seq_stack.c             //顺序栈
 |   ├── link_stack.c             //链式栈
 ├── queue                       //队列
+|   ├── lineQueue.c             //链式队列
+|   ├── seqQueue1.c             //顺序队列1
+|   ├── seqQueue2.c             //顺序队列2
 ├── README.md                   //readme.md文件
 
 ```

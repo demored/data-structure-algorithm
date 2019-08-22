@@ -1,7 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-//顺心栈的使用
+//入栈
 int push(int *a , int top , int elem);
 int pop(int *a , int top);
 
@@ -15,7 +15,7 @@ int pop(int *a , int top){
         printf("空栈\n");
         return 0;
     }
-    printf("弹出栈元素%d \n", a[top]);
+    printf("%d \n", a[top]);
 
     top--;
     return top;
