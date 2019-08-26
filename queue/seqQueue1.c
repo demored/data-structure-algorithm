@@ -1,22 +1,19 @@
 #include <stdio.h>
 
-/**
- *  采用数组来存储顺序队列
- *  此方法存在问题，头指针和尾指针重合点不断后移
- */
+// seq queue kind 1
 
-//进队列
+//in queue
 int inQueue(int *a , int rear, int data){
     a[rear] = data;
     rear++;
-    printf("入队列元素为%d\n", data);
+    printf("in queue data:%d\n", data);
     return rear;
 }
 
-//出队列
+//out queue
 int outQueue(int *a, int front , int rear){
     while(front != rear){
-        printf("出队列元素为%d\n", a[front]);
+        printf("out queue data:%d\n", a[front]);
         front++;
     }
     return front;
